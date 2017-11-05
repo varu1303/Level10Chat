@@ -101,8 +101,22 @@ $(document).ready(function() {
     
     socket.on('new req', function(d) {
 
-        $("#req-list ul").append('<li>'+d+' has requested a chat with you!</li>');
+        $("#req-list ul").append('<li id='+d+'><a href="#">'+d+'</a> has requested a chat with you!</li>');
+        
 
+    })
+    
+    $("#exampleInputEmail2").on('keyup', function () {
+        if ($("#exampleInputEmail2").val().length > 0){
+            $("#join-btn").attr('disabled', false);        
+        }        
+    })
+    
+    $("#myreq").on('click','a',function(){
+        var n = $(this).parent("li").attr('id');
+        $("#exampleInputEmail2").val(n);
+        $("#join-btn").attr('disabled', false); 
+        $("#join-btn").click();
     })
     
     $("#join-btn").on('click', function() {
