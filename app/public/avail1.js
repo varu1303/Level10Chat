@@ -114,8 +114,10 @@ $(document).ready(function() {
     
     $("#goreq").on('click','a',function(){
         var n = $(this).parent("li").attr('id');
-        if($("#exampleInputName2").val() != n)
+        if($("#exampleInputName2").val() != n){
             $("#exampleInputEmail2").val(n);
+            $("#join-btn").attr('disabled', false);
+        }
         
     })
     $("#myreq").on('click','a',function(){
