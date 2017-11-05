@@ -78,7 +78,7 @@ $(document).ready(function() {
             $("#avail-list ul").empty();
             $("#avail-list h3").text('Available Users: '+ d.length);
             $.each(d, function(i, v) {
-                $("#avail-list ul").append('<li>'+v.name+'</li>');
+                $("#avail-list ul").append('<li id='+v.name+'><a href="#">'+v.name+'</a></li>');
             }) 
     });
     
@@ -112,6 +112,12 @@ $(document).ready(function() {
         }        
     })
     
+    $("#goreq").on('click','a',function(){
+        var n = $(this).parent("li").attr('id');
+        if($("#exampleInputName2").val() != n)
+            $("#exampleInputEmail2").val(n);
+        
+    })
     $("#myreq").on('click','a',function(){
         var n = $(this).parent("li").attr('id');
         $("#exampleInputEmail2").val(n);
