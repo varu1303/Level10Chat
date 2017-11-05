@@ -42,6 +42,7 @@ myEmitter.on('fetch', (room) => {
 /***********************/
 
 const chatDB = require('./app/model/chat');
+const userDB = require('./app/model/userdb');
 
 
 const http = require('http');
@@ -67,13 +68,36 @@ io.on('connection', function(socket) {
     
 /* Available users */
     
+    socket.on('up user', function (d) {
+        userDB.addUser(d)
+            .then(function(d){
+                socket.emit('up', true);             
+        })
+            .catch(function(e){
+                socket.emit('up', false); 
+            });
+        
+    });
+    
     socket.on('avail user', function (d) {
-        available.push({id:socket.id, name:d.user});
-        io.emit('new avail', available);
+        var loguser = d.user;
+        userDB.checkUser(d)
+            .then(function(d){
+                if(d.length === 0){
+                    throw {};
+                }
+                available.push({id:socket.id, name:loguser});
+                io.emit('new avail', available);
+                socket.emit('in', true);
+            })
+            .catch(function(e){ 
+                socket.emit('in', false);
+            })
+
     });
     
     socket.on('unavail user', function (d) {
-
+        
         var index;
         available.forEach(function (v,i){
             if(d.user == v.name){

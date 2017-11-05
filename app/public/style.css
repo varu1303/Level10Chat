@@ -9,7 +9,8 @@ body,html {
     height: 100%;
 }
 
-/*index */
+/*
+index 
 
 h1 {
     margin-top: 10px;
@@ -35,6 +36,19 @@ h1 {
     list-style: none;
 }
 
+#up {
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+#up input {
+    padding: 10px;
+}
+
+#note, #note1, #war, #reg-sec, #out-btn{
+    display: none;
+}
+
 #log {
     padding: 20px;
     margin-bottom: 30px;
@@ -43,6 +57,7 @@ h1 {
 #log input {
     padding: 10px;
 }
+*/
 
 
 /*chat */
@@ -77,7 +92,7 @@ a:hover{
 }
 
 #chat-box {
-    width: 60%;
+    width: 80%;
     margin: 0 auto;
     margin-top:5px;
     height: 90vh;

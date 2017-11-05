@@ -7,42 +7,62 @@
         <meta name="author" content="Varun">
         
         <title>JOIN | ed_CHAT</title>
+        <!---Importing Font ---->
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
         <!-- Bootstrap minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">        
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="style1.css">
     </head>
     <body>
         
         <h1><strong>ed</strong> CHAT!!</h1>
         
         <div class="container">
+            <div id="up">
+                <button class="btn btn-primary" id="dis-up-btn">New User? Register!</button><br>
+                <div id="reg-sec">
+                    <input type="email" placeholder="Your email " id="up-email">
+                    <input type="text" placeholder="Username " id="up-name">
+                    <input type="password" placeholder="Password " id="up-pass"><br>
+                    <button class="btn btn-primary" id="up-btn">SIGN UP</button>
+                </div>
+            </div>
+            <p id="note">YOU'RE PART OF THE CLAN NOW!!</p>
+            <p id="note1">Sorry, Could not add you!!</p>
             <div id="log">
-                <label>Be available as. . </label>
-                <input type="text" placeholder="Your username " id="main-read">
-                <button class="btn btn-primary" id="log-btn" disabled>LOGIN</button>
-                <button class="btn btn-danger" id="out-btn" disabled>LOGOUT</button>
+                <button class="btn btn-primary" id="dis-log-btn">Already a member? Login!</button><br>
+                <div id="log-sec">
+                    <input type="text" placeholder="Your username " id="main-read">
+                    <input type="password" placeholder="Password " id="main-pass"><br>
+                    <button class="btn btn-primary" id="log-btn">LOGIN</button><br>
+                </div>
             </div>
-
-            <form class="form-inline" action="/chat.html">
-              <div class="form-group">
-                <label for="exampleInputName2">YO!</label>
-                <input type="text" class="form-control" id="exampleInputName2" name="user1" placeholder="Your username">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputEmail2">wants to chat with</label>
-                <input type="text" class="form-control" id="exampleInputEmail2" name="user2" placeholder="Friend's username">
-              </div>
-              <button type="submit" class="btn btn-primary" disabled id="join-btn">Launch One-to-One Chatroom</button>
-            </form>
-            <div id="avail-list">
-                <h3>AVAILABLE USERS: 0</h3>
-                <ul>
-                </ul>
-            </div>
-            <div id="req-list">
-                <h3>CHAT REQUESTS</h3>
-                <ul>
-                </ul>
+            <p id="no-war">LOGGED IN!!</p>
+            <button class="btn btn-danger" id="out-btn">LOGOUT</button>
+            <p id="war">INCORRECT CREDENTIALS!!</p>
+            
+            <div id="chat-sec">
+                <form class="form-inline" action="/chat.html">
+                  <div class="form-group">
+                    <label for="exampleInputName2">YO!</label>
+                    <input type="text" class="form-control" id="exampleInputName2" name="user1" placeholder="Your username" readonly>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail2">wants to chat with</label>
+                    <input type="text" class="form-control" id="exampleInputEmail2" name="user2" placeholder="Friend's username">
+                  </div>
+                  <button type="submit" class="btn btn-primary" id="join-btn">Launch One-to-One Chatroom</button>
+                </form>
+                <div id="avail-list">
+                    <h3>AVAILABLE USERS: 0</h3>
+                    <ul>
+                    </ul>
+                </div>
+                <div id="req-list">
+                    <h3>CHAT REQUESTS</h3>
+                    <ul>
+                    </ul>
+                </div>
             </div>
         </div>
         
@@ -53,6 +73,6 @@
         <!--socket liv -->
         <script src="/socket.io/socket.io.js"></script> 
         <!--Custom JS for index-->
-        <script src="avail.js"></script>
+        <script src="avail1.js"></script>
     </body>
 </html>
